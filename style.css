@@ -1,0 +1,116 @@
+html, body{
+  margin:0;
+  padding:0;
+  font-family:sans-serif;
+  background:#000;
+  overflow-x:hidden;
+  color:#fff;
+}
+
+.center{
+  position:relative;
+  width:min(92vw, 1000px);
+  height:300px;
+  margin:18vh auto 6vh;
+  transform:perspective(1000px) skewY(15deg);
+  transition:0.5s;
+}
+
+.center:hover{
+  transform:perspective(1000px) skewY(0deg);
+}
+
+.center h1{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+.center h1 span{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  text-transform:uppercase;
+  font-size:6em;
+  color:#fff;
+  transform-style:preserve-3d;
+  transition:0.8s;
+}
+
+.center h1 span:nth-child(1){
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.center h1 span:nth-child(2){
+  color:#5E17EB;
+  transform:translate(-50%,-50%) skewX(-60deg);
+  left:calc(50% - 25px);
+  clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
+}
+
+.center h1 span:nth-child(3){
+  transform:translate(-50%,-50%) skewY(0deg);
+  left:calc(50% - 50px);
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+.center:hover h1 span:nth-child(2),
+.center:hover h1 span:nth-child(3){
+  transform:translate(-50%,-50%) skewX(0deg);
+  left:50%;
+  color:#fff;
+}
+
+
+.below{
+  width:min(90vw, 800px);
+  margin:0 auto 120px;
+  padding-bottom:40px;
+}
+
+
+.mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-transform: lowercase;
+  text-align: justify;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  background: linear-gradient(90deg, #8a2be2, #00e5ff, #8a2be2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.highlight{
+  display:inline-block;
+  will-change:transform;
+  animation:wave 2.6s ease-in-out infinite;
+  animation-delay:var(--d, 0s);
+  transform-origin:center bottom;
+  font-weight:600;
+  color:#5E17EB;
+  text-shadow:0 0 8px #5E17EB;
+  text-transform:uppercase;
+}
+
+@keyframes wave{
+  0%{transform:translateY(0) rotate(0)}
+  20%{transform:translateY(-2px) rotate(-1deg)}
+  50%{transform:translateY(0) rotate(0)}
+  80%{transform:translateY(2px) rotate(1deg)}
+  100%{transform:translateY(0) rotate(0)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .highlight{animation:none}
+}
+
+
+.spotify-widget{
+  margin-top:40px;
+  text-align:center;
+}
